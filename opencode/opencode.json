@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "plugin": ["@franlol/opencode-md-table-formatter@latest"],
+  "instructions": ["learning-style.md"],
+  "permission": {
+    "bash": {
+      "go test *": "allow",
+      "go vet *": "allow",
+      "golangci-lint *": "allow"
+    }
+  },
+  "mcp": {
+    "learn-go-with-tests": {
+      "type": "remote",
+      "url": "https://quii.gitbook.io/learn-go-with-tests/~gitbook/mcp",
+      "enabled": true
+    },
+    "gopls": {
+      "type": "local",
+      "command": ["gopls", "mcp"],
+      "enabled": true
+    }
+  }
+}
