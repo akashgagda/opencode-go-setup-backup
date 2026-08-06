@@ -11,6 +11,7 @@ Backup of the opencode setup used for learning Go with MCP, for future restore.
   - loads `learning-style.md` as shared instructions
 - `opencode/agent/go-tutor.md` — a primary "Go tutor" agent teaching the TDD cycle
 - `opencode/learning-style.md` — shared Go learning ground rules
+- `opencode/command/notes.md` — `/notes <chapter>` command that writes a concise study note after each finished chapter
 
 ## Prerequisites (new machine)
 
@@ -32,6 +33,11 @@ Backup of the opencode setup used for learning Go with MCP, for future restore.
 # 4. switch to the tutor agent in a session
 #    opencode > /agent go-tutor
 ```
+
+## Daily use
+
+- `/agent go-tutor` — switch to the Go tutor agent for a session
+- `/notes <chapter>` (e.g. `/notes 04`) — after finishing a chapter, writes a concise note to `~/Projects/go-learning/notes/<chapter>.md`
 
 The `restore.sh` script copies the files into `~/.config/opencode/`. Backing up
 any existing files, it will refuse to overwrite a config file that already

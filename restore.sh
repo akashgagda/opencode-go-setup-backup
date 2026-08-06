@@ -20,6 +20,7 @@ restore_file() {
 restore_file "opencode.json"
 restore_file "learning-style.md"
 restore_file "agent/go-tutor.md"
+restore_file "command/notes.md"
 
 echo
 echo "Restore complete. Quit and restart opencode for changes to take effect."
