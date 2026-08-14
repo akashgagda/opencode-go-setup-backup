@@ -6,9 +6,10 @@ SRC="$(cd "$(dirname "$0")" && pwd)/opencode"
 
 restore_file() {
   local rel="$1"
+  local force="${2:-}"
   local src="$SRC/$rel"
   local dst="$DEST/$rel"
-  if [[ -f "$dst" ]] && ! cmp -s "$src" "$dst"; then
+  if [[ "$force" != "force" ]] && [[ -f "$dst" ]] && ! cmp -s "$src" "$dst"; then
     echo "SKIP $rel -> $dst already exists and differs (not overwritten)"
     return
   fi
@@ -17,7 +18,7 @@ restore_file() {
   echo "OK   $rel -> $dst"
 }
 
-restore_file "opencode.json"
+restore_file "opencode.json" force
 restore_file "learning-style.md"
 restore_file "agent/go-tutor.md"
 restore_file "command/notes.md"

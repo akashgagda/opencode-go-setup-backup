@@ -19,6 +19,11 @@
       "type": "local",
       "command": ["gopls", "mcp"],
       "enabled": true
+    },
+    "pkgsite": {
+      "type": "local",
+      "command": ["pkgsite"],
+      "enabled": true
     }
   }
 }

@@ -16,3 +16,6 @@ While learning a new concept, the student writes the code: do not write or edit 
 ## Sensible defaults
 - Keep modules small; `go mod init` a new module per exercise.
 - Prefer the standard library over third-party packages unless needed.
+
+## Package documentation
+- Look up official Go package docs via the `pkgsite_*` MCP tools (e.g. `pkgsite_package`, `pkgsite_symbols`) instead of guessing or relying on memory. These wrap the pkg.go.dev v1beta API.

@@ -7,6 +7,7 @@ Backup of the opencode setup used for learning Go with MCP, for future restore.
 - `opencode/opencode.json` — global opencode config
   - **Learn Go with Tests** MCP (remote GitBook)
   - **gopls** MCP (local, official Go code-intelligence tools: `go_search`, `go_diagnostics`, `go_symbol_references`, `go_vulncheck`, `go_file_context`, `go_package_api`)
+  - **pkgsite** MCP (local, wraps the pkg.go.dev v1beta API: `pkgsite_search`, `pkgsite_package`, `pkgsite_symbols`, `pkgsite_vulns`, etc.)
   - permission auto-allow for `go test`, `go vet`, `golangci-lint`
   - loads `learning-style.md` as shared instructions
 - `opencode/agent/go-tutor.md` — a primary "Go tutor" agent teaching the TDD cycle
@@ -17,6 +18,7 @@ Backup of the opencode setup used for learning Go with MCP, for future restore.
 
 - Go toolchain (e.g. via [mise](https://mise.jdx.dev))
 - gopls — `go install golang.org/x/tools/gopls@latest` (or via mise)
+- pkgsite — `go install github.com/hegner123/pkgsite@latest` (MCP server for pkg.go.dev docs)
 - golangci-lint — `mise use golangci-lint` (or their [official install](https://golangci-lint.run/welcome/install/))
 - opencode CLI
 
@@ -46,4 +48,5 @@ differs from the backed-up copy, so your active config is never clobbered.
 ## Notes
 
 - gopls MCP runs in detached mode (`gopls mcp`), so it only sees saved files.
+- pkgsite MCP wraps pkg.go.dev's v1beta API, so agents can look up official Go docs instead of guessing.
 - `default_agent` is intentionally NOT set to `go-tutor` so it does not hijack sessions.
