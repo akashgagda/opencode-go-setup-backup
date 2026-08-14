@@ -19,7 +19,7 @@ Backup of the opencode setup used for learning Go with MCP, for future restore.
 - Go toolchain (e.g. via [mise](https://mise.jdx.dev))
 - gopls — `go install golang.org/x/tools/gopls@latest` (or via mise)
 - pkgsite — `go install github.com/hegner123/pkgsite@latest` (MCP server for pkg.go.dev docs)
-- golangci-lint — `mise use golangci-lint` (or their [official install](https://golangci-lint.run/welcome/install/))
+- golangci-lint — `mise use -g golangci-lint@v2.12.2` (or their [official install](https://golangci-lint.run/welcome/install/))
 - opencode CLI
 
 ## Restore
