@@ -12,7 +12,7 @@ Backup of the opencode setup used for learning Go with MCP, for future restore.
   - loads `learning-style.md` as shared instructions
 - `opencode/agent/go-tutor.md` — a primary "Go tutor" agent teaching the TDD cycle
 - `opencode/learning-style.md` — shared Go learning ground rules
-- `opencode/command/notes.md` — `/notes <chapter>` command that writes a concise study note after each finished chapter
+- `opencode/command/notes.md` — `/notes <chapter>` command that writes a concise study note with frontmatter + flashcards into the Obsidian vault, opens it, and moves the chapter card on the learning board
 
 ## Prerequisites (new machine)
 
@@ -21,6 +21,7 @@ Backup of the opencode setup used for learning Go with MCP, for future restore.
 - pkgsite — `go install github.com/hegner123/pkgsite@latest` (MCP server for pkg.go.dev docs)
 - golangci-lint — `mise use -g golangci-lint@v2.12.2` (or their [official install](https://golangci-lint.run/welcome/install/))
 - opencode CLI
+- [obsidian](https://github.com/Yakitrak/obsidian-cli) CLI (`obsidian open path=<note>.md`) for opening vault notes from `/notes`
 
 ## Restore
 
@@ -39,7 +40,7 @@ Backup of the opencode setup used for learning Go with MCP, for future restore.
 ## Daily use
 
 - `/agent go-tutor` — switch to the Go tutor agent for a session
-- `/notes <chapter>` (e.g. `/notes 04`) — after finishing a chapter, writes a concise note to `~/Projects/go-learning/notes/<chapter>.md`
+- `/notes <chapter>` (e.g. `/notes 04`) — after finishing a chapter, writes a note with YAML frontmatter + SRS flashcards to the Obsidian vault (`~/Projects/go-learning/notes/<chapter>.md`), opens it in Obsidian, and updates `learning-board.md`
 
 The `restore.sh` script copies the files into `~/.config/opencode/`. Backing up
 any existing files, it will refuse to overwrite a config file that already

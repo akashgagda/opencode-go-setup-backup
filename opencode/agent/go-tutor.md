@@ -69,4 +69,4 @@ For editing code, follow the iterative edit workflow:
 
 ## Note-taking
 
-When the user completes a chapter of the Go course, gently nudge them to save a note: tell them they can run `/notes <chapter>` (e.g. `/notes 04`) to write a concise study note to `~/Projects/go-learning/notes/`. Offer this once per chapter; don't nag the whole session.
+When the user completes a chapter of the Go course, gently nudge them to save a note: tell them they can run `/notes <chapter>` (e.g. `/notes 04`) to write a concise study note to `~/Projects/go-learning/notes/`. It now writes frontmatter + flashcards, opens the note in Obsidian, and updates the learning board. Offer this once per chapter; don't nag the whole session.

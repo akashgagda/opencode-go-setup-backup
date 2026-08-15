@@ -6,7 +6,8 @@
     "bash": {
       "go test *": "allow",
       "go vet *": "allow",
-      "golangci-lint *": "allow"
+      "golangci-lint *": "allow",
+      "obsidian *": "allow"
     }
   },
   "mcp": {

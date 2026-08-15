@@ -19,3 +19,14 @@ While learning a new concept, the student writes the code: do not write or edit 
 
 ## Package documentation
 - Look up official Go package docs via the `pkgsite_*` MCP tools (e.g. `pkgsite_package`, `pkgsite_symbols`) instead of guessing or relying on memory. These wrap the pkg.go.dev v1beta API.
+
+## Notes & Obsidian
+The vault is `~/Projects/go-learning/notes/` (an Obsidian vault, driven via the `obsidian` CLI). When writing or editing study notes, follow these conventions so the dashboard, board, and flashcards stay consistent:
+
+- Every chapter note has YAML frontmatter: `chapter` (two-digit number), `title`, `status` (`todo`/`in-progress`/`done`), `date`, and `tags: [go, chapter]`. The Dataview dashboard reads this — without it the chapter won't appear.
+- Self-test questions are Spaced Repetition single-line flashcards: `Question?::Answer #flashcards`.
+- TDD checklist items in a chapter note carry the `#task` tag (the Tasks plugin tracks them); plain `- [ ]` items are ignored by Tasks.
+- When a chapter is finished, prefer `/notes <chapter>` over hand-writing a note — it writes the file, opens it in Obsidian, and moves the card on `learning-board.md` to Done.
+- `dashboard.md` (Dataview) and `learning-board.md` (Kanban) are maintained by the `/notes` flow; when editing notes by hand, keep `learning-board.md` cards in sync with chapter status.
+- `glossary.md` uses a `| Term | Meaning | Example |` table; append rows rather than reformatting.
+- Drawings live in `notes/drawings/` (Excalidraw).
