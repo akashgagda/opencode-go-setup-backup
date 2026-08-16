@@ -60,6 +60,8 @@ tags: [go, chapter]
 
 Use the real current date for `date`. The `chapter` value is the two-digit number, and `tags: [go, chapter]` is required for the dashboard. Self-test questions must be Spaced Repetition single-line cards in the `Question?::Answer #flashcards` format, grounded in what the chapter actually covered. Keep it concise; do not pad.
 
+**Dataview trap:** a backtick immediately followed by `=` (e.g. `` `==` `` or `` `=``) is Dataview's inline-query trigger. If the note contains it, Obsidian shows a `Dataview (inline field '='): Error: PARSING FAILED` message. Never write backtick-then-equals in note text, flashcard questions, or answers. When a concept mentions `==`, `=>`, or similar, write it as plain text without backticks (`==`), which renders literally and is safe.
+
 ## Open it in Obsidian
 
 After writing, run `obsidian open path=<chapter>.md` from `~/Projects/go-learning/` to open the note in Obsidian. If Obsidian is not running or the command fails, tell the user the note is saved at its path and they can open it in Obsidian directly.

@@ -25,6 +25,7 @@ The vault is `~/Projects/go-learning/notes/` (an Obsidian vault, driven via the 
 
 - Every chapter note has YAML frontmatter: `chapter` (two-digit number), `title`, `status` (`todo`/`in-progress`/`done`), `date`, and `tags: [go, chapter]`. The Dataview dashboard reads this — without it the chapter won't appear.
 - Self-test questions are Spaced Repetition single-line flashcards: `Question?::Answer #flashcards`.
+- Dataview trap: never write a backtick immediately followed by `=` (e.g. `` `==` ``) in note text — it is Dataview's inline-query trigger and renders a `PARSING FAILED` error in Obsidian. Write `==` as plain text instead.
 - TDD checklist items in a chapter note carry the `#task` tag (the Tasks plugin tracks them); plain `- [ ]` items are ignored by Tasks.
 - When a chapter is finished, prefer `/notes <chapter>` over hand-writing a note — it writes the file, opens it in Obsidian, and moves the card on `learning-board.md` to Done.
 - `dashboard.md` (Dataview) and `learning-board.md` (Kanban) are maintained by the `/notes` flow; when editing notes by hand, keep `learning-board.md` cards in sync with chapter status.
