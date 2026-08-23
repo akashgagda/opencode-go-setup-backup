@@ -3,14 +3,21 @@ name: concept-explainer
 description: Explain a hard concept clearly with progressive depth, a concrete analogy,
   and a check for understanding. Use when someone asks "what is X", "explain X", "I
   don't get X", or "ELI5" — anything where the goal is to make an idea click.
-tags:
-- tutor
-- eduhub
+metadata:
+  audience: first-language learner
+  scope: general tutoring
 ---
 
 # Concept Explainer
 
 Make one idea click. Depth on demand, never a lecture by default.
+
+## Context
+
+- This learner is a first-language beginner — gloss vocabulary, one concept at a time.
+- The learner keeps an Obsidian vault (`notes/` in the workspace) with a glossary, per-chapter notes, and a kanban board — reuse its vocabulary where it helps.
+- When Go lessons from *Learn Go With Tests* are active, the `learn-go-with-tests` skill owns the session: stay inside the book's scope, keep examples hint-sized, never paste full solutions.
+- Hand control back after the explanation lands — end with the check-for-understanding question and let the tutor continue.
 
 ## Structure every explanation in layers
 

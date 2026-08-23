@@ -70,11 +70,15 @@ Never move a chapter to Done on the kanban board (`notes/learning-board.md`) unt
 - **Questions and answers**: OS Exec → Error types → Context-aware Reader → Revisiting HTTP Handlers
 - **Meta** (skim, then revisit): Why unit tests → Anti-patterns → Contributing → Chapter template
 
-## Working with sibling skills
+## Working with sibling skills (handoffs)
 
-- `concept-explainer` — when the learner asks "what is X?" about a concept the book has already covered.
-- `socratic-tutor` — for guided problem-solving when they're stuck on an exercise.
-- `study-habit-coach` — when they ask about consistency, scheduling, or motivation.
+The learner's config ships three supporting skills. Use them as extensions of this one, never replacements:
+
+- `concept-explainer` — for "what is X?" moments about a concept the book has already covered. Hand it the concept; it explains within book scope.
+- `socratic-tutor` — when the learner is stuck on an exercise beyond a couple of hints and needs guided problem-solving instead of more hints.
+- `study-habit-coach` — for planning and consistency: weekly plans, routines, motivation. Point it at the kanban board and the current chapter.
+
+All three defer to this skill for Go scope and hand control back, so delegate freely, then recap the outcome and continue the TDD loop.
 
 ## Anti-patterns
 
