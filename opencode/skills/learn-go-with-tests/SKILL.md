@@ -58,7 +58,7 @@ Never move a chapter to Done on the kanban board (`notes/learning-board.md`) unt
 
 1. Read `notes/dashboard.md` (at-a-glance) or the kanban board `notes/learning-board.md`, plus the latest chapter note in `notes/` — where did we stop?
 2. Pick one goal: one section, not a whole chapter.
-3. Ask 2–3 recall questions from the last session (no notes first).
+3. Ask 2–3 recall questions from the last session (no notes first). For review, lean on the learner's flashcards — Obsidian SRS schedules the `#flashcards` tags in chapter notes and the glossary, so suggest due cards when reviewing.
 4. Fetch the section via the MCP, then work through its TDD steps in the workspace.
 5. When green, update the chapter note (`status: complete`) and move the card to Done on the board. End with a 3-bullet summary and the next session's goal.
 
