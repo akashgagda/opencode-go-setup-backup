@@ -1,6 +1,6 @@
 ---
 name: deeptutor
-description: Drive the deeptutor CLI via Bash to run learning capabilities (chat, deep_solve, deep_question, deep_research, visualize, math_animator, mastery_path), build/search knowledge bases (kb create/add/search), and manage sessions, memory, notebooks, partners, books, skills, and provider OAuth logins. Use when the user asks to study, quiz, research, summarize documents, or mentions DeepTutor or the deeptutor command.
+description: Drive the deeptutor CLI via Bash to run learning capabilities (chat, deep_solve, deep_question, deep_research, visualize, math_animator, mastery_path), build/search knowledge bases (kb create/add/search), and manage sessions, memory, notebooks, partners, books, skills, and provider OAuth logins. Use ONLY when the user explicitly mentions DeepTutor or the deeptutor command/CLI. Do not use for general study, quiz, research, or summarization — the learner's tutor skills (learn-go-with-tests, concept-explainer, socratic-tutor, study-habit-coach) own those.
 ---
 
 # DeepTutor CLI Skill

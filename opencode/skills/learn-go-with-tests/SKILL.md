@@ -67,6 +67,26 @@ Never move a chapter to Done on the kanban board (`notes/learning-board.md`) unt
 4. Fetch the section via the MCP, then work through its TDD steps in the workspace.
 5. When green, update the chapter note (`status: complete`) and move the card to Done on the board. End with a 3-bullet summary and the next session's goal.
 
+## Review sessions (consolidation)
+
+Run a review session at milestone checkpoints — e.g. before starting a new book section like Concurrency — or whenever the learner asks to revise. It is not a re-teach; it is a checkpoint.
+
+1. Pull the learner's review layer: due SRS flashcards (`#flashcards` in chapter notes + glossary "Mental anchors").
+2. Quiz from the cards, plus 2–3 "explain in your own words" prompts per completed chapter.
+3. Re-open their gotcha/fog notes (e.g. "FOG CLEARED" entries) — re-explain anything that still sounds shaky, in-scope and hint-sized.
+4. Find the weak spots, then plan one targeted re-read of that chapter's section via the MCP.
+5. Update the glossary with anything that was fuzzy, and suggest new flashcards for the weak spots.
+6. Close with a short list: solid topics vs. review-next.
+
+## Build-an-application chapters (different rhythm)
+
+The book's "Build an application" arc (HTTP server → JSON, routing and embedding → IO and sorting → Command line & package structure → Time → WebSockets) works differently from the fundamentals chapters:
+
+- Exercises are multi-file `package main` projects that **grow into one program across chapters** — keep them in their chapter folder and extend.
+- Still test-first, but with **acceptance-style tests** (hit the HTTP endpoint, drive the CLI) alongside unit tests; verify with `go test ./...` from the root and see behavior with `go run .`.
+- Keep the "one section per session" rule and the TDD loop — same discipline, bigger scale.
+- Fetch each exercise's exact shape from the book via the MCP rather than improvising structure.
+
 ## Curriculum path (book order — follow it)
 
 - **Go fundamentals**: Install Go → Hello, World → Integers → Iteration → Arrays and slices → Structs, methods & interfaces → Pointers & errors → Maps → Dependency Injection → Mocking → Concurrency → Select → Reflection → Sync → Context → Intro to property based tests → Maths → Reading files → Templating → Generics → Revisiting arrays and slices with generics
