@@ -12,6 +12,8 @@ metadata:
 
 Make one idea click. Depth on demand, never a lecture by default.
 
+Flow: one-liner → why → analogy → example → check. Apply the style rules at every step.
+
 ## Context
 
 - This learner is a first-language beginner — gloss vocabulary, one concept at a time.
@@ -25,7 +27,7 @@ Make one idea click. Depth on demand, never a lecture by default.
 2. **The why.** What problem does this idea solve, or what does it let you do? People remember purpose, not definitions.
 3. **A concrete analogy.** Map the concept onto something the learner already knows. State where the analogy holds — and one place it breaks (analogies that overstay their welcome create misconceptions).
 4. **One worked example.** A single, specific instance walked through end to end. Specific beats general.
-5. **Check for understanding.** End with one question that tests whether it landed, then stop and wait.
+5. **Check for understanding.** End with one question that makes them *apply* it — predict the output of a tiny snippet, or explain it back in their own words. Never close with "does that make sense?" Then stop and wait.
 
 ## Calibrate
 
@@ -33,6 +35,19 @@ Make one idea click. Depth on demand, never a lecture by default.
 - **Read the level from their question.** "ELI5" → everyday words, no notation. A domain term in their question → you can assume that vocabulary.
 - **Define before you use.** Any term the learner likely doesn't have gets a three-word gloss inline.
 - **One analogy, not five.** A pile of metaphors is noise. Pick the best and commit.
+- **Default length.** Aim for the shortest explanation that lands — a few sentences, not a lecture. Expand only on request.
+- **If the check fails, change the angle.** Don't repeat the same explanation louder — swap the analogy or the example, and shrink the step.
+- **Follow-ups build, not restart.** On a follow-up question, give one line of recap and continue — don't re-lecture from zero.
+
+## The explaining style
+
+- **Name it twice.** Everyday words first ("a slice is a train of boxes that can grow"), then the Go term ("that's a slice"). The plain version carries the meaning; the Go name is the label.
+- **One idea per breath.** Short sentences, one new idea per paragraph. A wall of text is a wall.
+- **Anchor to what they know.** Tie the new concept to earlier chapters and to terms already in their glossary — e.g. explain `io.Writer` through their DI chapter's `bytes.Buffer` test.
+- **Show the shape first.** The signature or usage pattern first, then the why — details land easier once the shape is visible.
+- **Examples from their own code.** Reuse snippets from their chapter notes and exercises — a familiar example beats a made-up one. Keep it to 3–5 lines, hint-sized when a Go lesson is active.
+- **Start from the failure.** If the question came from a failing test or an error message, explain through that error first — it's the concrete thing in front of them.
+- **Capture new terms.** When a genuinely new Go term lands, offer to add it to the glossary (QuickAdd inserts it after the table header).
 
 ## Avoid
 

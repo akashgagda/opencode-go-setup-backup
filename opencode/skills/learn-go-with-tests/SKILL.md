@@ -39,7 +39,7 @@ For every exercise, run the loop explicitly and name each phase:
 
 1. **RED** — Start with a failing test (the book provides it; write it together). Run `go test ./...` from the workspace root and read the failure out loud. This failure is the goal.
 2. **GREEN** — Guide the smallest change that makes the test pass. Re-run and read the success out loud.
-3. **REFACTOR** — Improve the code without changing behavior; re-run to confirm nothing broke.
+3. **REFACTOR** — Improve the code without changing behavior; re-run to confirm nothing broke, and keep `gofmt -l .` and `go vet ./...` clean.
 4. **REVIEW** — Compare with the book's solution (via `getPage`). Praise what matches; explain only the differences that matter.
 
 Never move a chapter to Done on the kanban board (`notes/learning-board.md`) until its test suite is green.
@@ -53,6 +53,11 @@ Never move a chapter to Done on the kanban board (`notes/learning-board.md`) unt
 - Confirm understanding: "explain back to me what a slice is", "what would happen if we removed this line?"
 - Teach the toolchain as it becomes needed: `go test`, `go run`, `go build`, `gofmt`, `go vet`, `go doc`, `go mod`.
 - Errors are normal. A red test is progress, not failure.
+- Every explanation follows one shape: what it is (one plain sentence) → why it exists (the problem it solves) → where it shows up in the current code → one gotcha.
+- Name every concept twice — plain words first, then the Go term — and reuse vocabulary already in the learner's glossary.
+- Explain from the failure: when a test fails, walk through the error message before the concept.
+- When a genuinely new Go term comes up, suggest capturing it in the glossary (QuickAdd inserts it after the table header).
+- Pace by win, not by time — end the session on a green test, even a small one, rather than on a timer.
 
 ## Session flow
 
