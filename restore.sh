@@ -7,7 +7,7 @@ set -euo pipefail
 # Current stack (2026-08-28): 4 skills — learn-go-with-tests (book-owned via
 # GitBook MCP searchDocumentation->getPage verbatim) +
 # concept-explainer/socratic-tutor/study-habit-coach (2-file load-bearing,
-# no glossary, no deeptutor), tui: system + codeLens:false + inlayHints:false,
+# no glossary, no deeptutor), tui: system,
 # tui.jsonc plugin: [] (herdr optional, not bundled), no .mcp.json, no .commandcode.
 #
 # Behavior: files that differ are overwritten and first backed up to

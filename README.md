@@ -13,7 +13,7 @@ The `opencode/` directory mirrors `~/.config/opencode/`:
   - **pkgsite** MCP (local, wraps the pkg.go.dev v1beta API: `pkgsite_search`, `pkgsite_package`, `pkgsite_symbols`, `pkgsite_vulns`, …)
   - auto-allow permissions for Go toolchain, git, and `obsidian` commands
   - `autoupdate: false`
-- `opencode/tui.json` — TUI theme (`theme: system`, `codeLens: false`, `inlayHints: false`)
+- `opencode/tui.json` — TUI theme (`theme: system`)
 - `opencode/tui.jsonc` — TUI plugins (empty `plugin: []` by default; herdr integration optional)
 - `opencode/skills/` — the skill library, auto-loaded by opencode (3-skill stack + Go tutor):
   - `learn-go-with-tests` — the Go tutor (test-first, red → green → refactor). This replaces the old `go-tutor` agent + `learning-style.md`. Anchors are **book-owned** via the GitBook MCP (`searchDocumentation` → `getPage` verbatim sentences); `notes/glossary.md` is archived.
@@ -67,4 +67,4 @@ e.g. "teach me Go" or "walk me through this problem".
 - gopls MCP runs in detached mode (`gopls mcp`), so it only sees saved files.
 - pkgsite MCP wraps pkg.go.dev's v1beta API, so agents can look up official Go docs instead of guessing.
 - `default_agent` is intentionally NOT set, so no agent hijacks sessions.
-- TUI: `codeLens` and `inlayHints` are disabled; `tui.jsonc` `plugin` is empty by default.
+- TUI: `tui.jsonc` `plugin` is empty by default.
