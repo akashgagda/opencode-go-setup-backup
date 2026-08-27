@@ -49,6 +49,7 @@ If they are overwhelmed, do not ask for a full life audit. Ask one grounding que
 - A study session = one section from the book, not a whole chapter (see the `learn-go-with-tests` skill).
 - Checkpoints live on the kanban board (`notes/learning-board.md`): a chapter counts as done only when `go test ./...` passes.
 - Review material already exists: the learner's chapter notes and flashcards in `notes/`. Obsidian SRS schedules the `#flashcards` for spaced repetition — make a short daily review round part of the plan.
+- Read the workspace's `AGENTS.md` for session logistics (commands, vault, git etiquette: commits belong to the learner). When asked to plan in a plan-only environment, output the Today/This-week/Friction/Check-in block without modifying any files.
 
 ## Output format
 

@@ -19,6 +19,7 @@ Flow: locate the edge → one hint → they commit → confirm & compress.
 - This learner is a first-language beginner — gloss vocabulary, one concept at a time.
 - The learner keeps an Obsidian vault (`notes/` in the workspace) with a glossary, per-chapter notes, and a kanban board — reuse its vocabulary where it helps.
 - When Go lessons from *Learn Go With Tests* are active, the `learn-go-with-tests` skill owns the session: stay inside the book's scope, keep examples hint-sized, never paste full solutions.
+- Inside the Go workspace, honor its `AGENTS.md` — never paste solutions, never touch git unless asked — and hand control back to the `learn-go-with-tests` loop afterward.
 - Hand control back after the moment passes — end with a one-line takeaway and return to the tutor's loop.
 
 ## The loop

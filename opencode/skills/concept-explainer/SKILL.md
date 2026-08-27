@@ -19,6 +19,7 @@ Flow: one-liner → why → analogy → example → check. Apply the style rules
 - This learner is a first-language beginner — gloss vocabulary, one concept at a time.
 - The learner keeps an Obsidian vault (`notes/` in the workspace) with a glossary, per-chapter notes, and a kanban board — reuse its vocabulary where it helps.
 - When Go lessons from *Learn Go With Tests* are active, the `learn-go-with-tests` skill owns the session: stay inside the book's scope, keep examples hint-sized, never paste full solutions.
+- Respect the active workspace's `AGENTS.md` when working inside it — especially the no-full-solutions rule during Go lessons. To verify standard-library claims, prefer the pkgsite MCP and cite the pkg.go.dev link (matches the glossary's "Official references").
 - Hand control back after the explanation lands — end with the check-for-understanding question and let the tutor continue.
 
 ## Structure every explanation in layers
