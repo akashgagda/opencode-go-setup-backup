@@ -13,15 +13,14 @@ The `opencode/` directory mirrors `~/.config/opencode/`:
   - **pkgsite** MCP (local, wraps the pkg.go.dev v1beta API: `pkgsite_search`, `pkgsite_package`, `pkgsite_symbols`, `pkgsite_vulns`, …)
   - auto-allow permissions for Go toolchain, git, and `obsidian` commands
   - `autoupdate: false`
-- `opencode/tui.json` — TUI theme
-- `opencode/tui.jsonc` — TUI plugins (`./herdr-tui-session.js`)
-- `opencode/skills/` — the skill library, auto-loaded by opencode:
-  - `learn-go-with-tests` — the Go tutor (test-first, red → green → refactor). This replaces the old `go-tutor` agent + `learning-style.md`
-  - `concept-explainer` — explain any concept with progressive depth + a check for understanding
+- `opencode/tui.json` — TUI theme (`theme: system`, `codeLens: false`, `inlayHints: false`)
+- `opencode/tui.jsonc` — TUI plugins (empty `plugin: []` by default; herdr integration optional)
+- `opencode/skills/` — the skill library, auto-loaded by opencode (3-skill stack + Go tutor):
+  - `learn-go-with-tests` — the Go tutor (test-first, red → green → refactor). This replaces the old `go-tutor` agent + `learning-style.md`. Anchors are **book-owned** via the GitBook MCP (`searchDocumentation` → `getPage` verbatim sentences); citation display `none` (hide file refs); `notes/glossary.md` is archived.
+  - `concept-explainer` — explain any concept with progressive depth + a check for understanding (book-MCP for Go terms)
   - `socratic-tutor` — teach by asking questions, not handing over answers
-  - `study-habit-coach` — build a repeatable study habit (tiny actions, friction fixes)
-  - `deeptutor` — drive the DeepTutor CLI: `deep_solve`, `deep_question`, `deep_research`, knowledge bases, partners, sessions, notebooks, …
-- `opencode/plugins/herdr-agent-state.js` + `opencode/herdr-tui-session.js` — [herdr](https://herdr.app) → opencode pane integration. Managed by herdr: reinstalling the integration regenerates them, so restore is just a safety net.
+  - `study-habit-coach` — build a repeatable study habit (tiny actions, friction fixes; flashcards from chapter notes only)
+- `opencode/plugins/` — optional pane integrations (e.g. [herdr](https://herdr.app) `herdr-agent-state.js` / `herdr-tui-session.js` when installed; managed by herdr and regenerated on reinstall — not included by default)
 - `opencode/package.json` / `opencode/package-lock.json` — `@opencode-ai/plugin` runtime dependency for plugins (restore runs `npm install` / `bun install` automatically when needed).
 
 ## Prerequisites (new machine)
@@ -55,21 +54,17 @@ but `node_modules/` is missing, it runs `bun install` (or `npm install`) there.
 
 - **Go tutoring** — the `learn-go-with-tests` skill drives test-first sessions in
   the `~/Projects/go-learning` workspace: a single Go module with one package per
-  chapter plus an Obsidian vault (`notes/learning-board.md` kanban, per-chapter
-  notes, `glossary.md`) and its own `AGENTS.md`. That workspace is versioned
-  separately at github.com/akashgagda/go-learning.
+  chapter plus an Obsidian vault (`notes/dashboard.md`, `notes/learning-board.md` load-bearing; `notes/glossary.md` archived — anchors are book-owned via MCP) and its own `AGENTS.md`. That workspace is versioned separately at github.com/akashgagda/go-learning.
 - **General tutoring** — `concept-explainer`, `socratic-tutor`, and
-  `study-habit-coach` are generic and apply to any subject.
-- **DeepTutor** — the `deeptutor` skill covers the CLI platform end to end
-  (dedicated workspace: `/home/akash/Work/my-deeptutor`).
+  `study-habit-coach` are generic and apply to any subject (3-skill stack, no deeptutor).
 
 Skills load automatically in opencode — there is no agent to switch to. Just ask,
 e.g. "teach me Go" or "walk me through this problem".
 
 ## Notes
 
-- The old setup (`go-tutor` agent, `learning-style.md`, `/notes` command) was
-  replaced by the skill library plus the workspace's own rules; see git history.
+- The old setup (`go-tutor` agent, `learning-style.md`, `/notes` command, `deeptutor` skill, glossary-owned anchors) was replaced by the skill library plus the workspace's own rules; see git history. Glossary integration removed — anchors are now book-owned via MCP (`searchDocumentation` → `getPage` verbatim).
 - gopls MCP runs in detached mode (`gopls mcp`), so it only sees saved files.
 - pkgsite MCP wraps pkg.go.dev's v1beta API, so agents can look up official Go docs instead of guessing.
 - `default_agent` is intentionally NOT set, so no agent hijacks sessions.
+- TUI: `codeLens` and `inlayHints` are disabled; `tui.jsonc` `plugin` is empty by default.
