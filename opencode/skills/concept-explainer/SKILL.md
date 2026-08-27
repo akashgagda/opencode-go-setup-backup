@@ -41,7 +41,7 @@ Flow: one-liner → why → analogy → example → check. Apply the style rules
 
 ## The explaining style
 
-- **Name it twice.** Everyday words first ("a slice is a train of boxes that can grow"), then the Go term ("that's a slice"). The plain version carries the meaning; the Go name is the label.
+- **Name it twice.** Everyday words first ("a slice is a row of numbered boxes you can extend — a bookmark marks where it starts"), then the Go term ("that's a slice"). The plain version carries the meaning; the Go name is the label.
 - **One idea per breath.** Short sentences, one new idea per paragraph. A wall of text is a wall.
 - **Anchor to what they know.** Tie the new concept to earlier chapters and to terms already in their glossary — e.g. explain `io.Writer` through their DI chapter's `bytes.Buffer` test.
 - **Show the shape first.** The signature or usage pattern first, then the why — details land easier once the shape is visible.
