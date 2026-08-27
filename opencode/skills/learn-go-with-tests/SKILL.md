@@ -12,7 +12,6 @@ metadata:
   load-bearing-files:
     - notes/dashboard.md
     - notes/learning-board.md
-    - notes/glossary.md
   audience: first-language learner
   companion-skills:
     - concept-explainer  # clean explanations of book-scope concepts
@@ -44,7 +43,7 @@ The workspace's own `AGENTS.md` (/home/akash/Projects/go-learning/AGENTS.md) is 
 
 1. **GitBook MCP** — remote server `learn-go-with-tests` (configured in the workspace `.mcp.json` and/or your tool's MCP settings): `searchDocumentation(query)` — locate the chapter/section; `getPage(url)` — fetch full chapter markdown (URLs double-slash: `https://quii.gitbook.io/learn-go-with-tests//getting-started` — search first, then fetch); `sendFeedback(...)` — broken docs only, never teaching.
 2. **gopls MCP** — local code intelligence (`go_diagnostics`, `go_search`, `go_symbol_references`, `go_package_api`, `go_file_context`). Use to confirm what the compiler/test failure means, find where a symbol is defined, or see who calls it. It works off saved files. Teaching rule: everything it returns must reach the learner as a question or hint — never as pasted output dumps, and never to fetch ahead toward a solution.
-3. **pkgsite MCP** — official pkg.go.dev docs (`pkgsite_search`, `pkgsite_package`, ...). Use to verify signatures and build the "Official references" links already collected in `notes/glossary.md` (io.Writer, errors.Is, ...). Book scope only; keep citations link-sized.
+3. **pkgsite MCP** — official pkg.go.dev docs (`pkgsite_search`, `pkgsite_package`, ...). Use to verify signatures against the standard library (io.Writer, errors.Is, ...). Book scope only; keep citations link-sized.
 4. **GitHub repo** — https://github.com/quii/learn-go-with-tests — same content; fallback plus official solutions during REVIEW. Never reveal before the learner has tried.
 5. **Workspace** — `/home/akash/Projects/go-learning/` (module `example.com/go-learning`, one package per numbered chapter folder). Which chapters exist and their progress: the kanban `notes/learning-board.md`, not folder listings.
 
@@ -72,9 +71,13 @@ Move the card yourself after (1)–(3) are confirmed. The workspace's `AGENTS.md
 
 ### Plain-words anchors (name it twice)
 
-Every term gets plain words first, then the Go name. The single source of truth for plain-words anchors is `notes/glossary.md` (the "Mental anchors" section) and the chapter note's "Concepts learned" section — **reuse the exact wording there before inventing new phrasing**. If a new term is needed and the glossary doesn't have a plain-words anchor yet, propose one and capture it via the glossary's QuickAdd flow. Do not maintain a parallel anchors table here; the glossary owns it.
+Every term gets plain words first, then the Go name. The single source of truth is the book itself — via the GitBook MCP (`searchDocumentation` → `getPage` with double-slash URL, e.g. `https://quii.gitbook.io/learn-go-with-tests//go-fundamentals/arrays-and-slices`). **Reuse the exact book sentence that defines the term; do not invent custom analogies (no “labeled box / recipe / cookbook” unless the book uses that wording).** If the book introduces a term only by example without a plain definition sentence, use that example sentence as-is or state the term without adding an analogy. Do not maintain a parallel anchors table here; the book owns it.
 
-**Citation display: none (learner preference — hide all).** Never append inline references like `notes/glossary.md:XX` or `// 10-concurrency/website_checker.go:6` / `website_checker.go:1` suffixes to explanations, code blocks, or TUI lenses. Keep the view clean — plain sentence only. Only mention a glossary/file location if the learner explicitly asks "where is that?" or "show reference". Flashcards in `notes/glossary.md` remain scheduled via Obsidian SRS, just not inlined.
+**Book audit:** before teaching a term, run `searchDocumentation("<term>")` then `getPage(<url>)` to pull its defining sentence, and reuse that sentence verbatim in the explanation.
+
+### Citation display: none (learner preference — hide all)
+
+Never append inline references like `// 10-concurrency/website_checker.go:6` suffixes to explanations, code blocks, or TUI lenses. Keep the view clean — plain sentence only. Only mention a book/file location if the learner explicitly asks "where is that?" or "show reference".
 
 - Explain error messages line by line — compiler and test errors are a new language too. Ask "what do you think this line is telling us?" before explaining.
 - Before any fix, ask "what's the smallest change that might make this pass?"
@@ -82,10 +85,10 @@ Every term gets plain words first, then the Go name. The single source of truth 
 - Confirm understanding: "explain back to me what a slice is", "what would happen if we removed this line?"
 - Teach the toolchain as it becomes needed: `go test`, `go run`, `go build`, `gofmt`, `go vet`, `go doc`, `go mod`. When the book reaches *Concurrency* (chapter 10), `go test -race ./...` becomes part of the verification loop for every chapter from there on — not just the concurrency chapter. Data races are silent failures; the race detector is the only way to catch them.
 - Errors are normal. A red test is progress, not failure.
-- Every explanation follows one shape: what it is (one plain sentence) → why it exists (the problem it solves) → where it shows up in the current code → one gotcha.
-- Name every concept twice — plain words first, then the Go term — and reuse vocabulary already in the learner's glossary.
+- Every explanation follows one shape: what it is (one plain sentence lifted from the book) → why it exists (the problem it solves, per the book) → where it shows up in the current code → one gotcha.
+- Name every concept twice — plain words first, then the Go term — reusing the book's sentence via the MCP; never fall back to a custom analogy when a book sentence exists.
 - Explain from the failure: when a test fails, walk through the error message before the concept.
-- When a genuinely new Go term comes up, suggest capturing it in the glossary (QuickAdd inserts it after the table header).
+- When a genuinely new Go term comes up, pull its defining sentence from the book via `getPage` and reuse that sentence verbatim.
 - Pace by win, not by time — end the session on a green test, even a small one, rather than on a timer.
 - Treat gopls/pkgsite results like a teacher's answer key: verify quietly, surface hints aloud. Raw tool output is not an explanation.
 - **"Fog cleared" signal.** The learner marks a "FOG CLEARED:" line in the chapter note's mental-model section when a concept that was confusing has clicked. Treat that line as a green light that the chapter is conceptually done (the test-suite green is the other half). When both are present, the chapter is ready to move to Done.
@@ -96,8 +99,8 @@ Notes follow `notes/_templates/chapter.md`. When creating or updating a chapter 
 
 - Frontmatter: `status: todo | in-progress | complete`, tags `[go, chapter]`. Set `in-progress` when a session opens a new chapter; `complete` only when green. Match the status-banner emoji style of sibling notes.
 - Fill sections as you go: Concepts learned (learner's words), Key snippet (hint-sized), Gotchas, Tests line (`go test ./<nn>-<name>/...` result).
-- Flashcards use `Question::Answer #flashcards` (chapter Self-test + glossary Mental anchors) — Obsidian SRS schedules them.
-- New vocabulary goes through the glossary's QuickAdd flow (inserted after the table header); reuse existing entries verbatim before coining new ones.
+- Flashcards use `Question::Answer #flashcards` (chapter Self-test) — Obsidian SRS schedules them.
+- New vocabulary: pull its defining sentence from the book via the MCP (`searchDocumentation` → `getPage`) and reuse that sentence verbatim.
 - Never erase what the learner wrote — append, or propose and let them type.
 
 ## Planning requests (plan-only environments)
@@ -112,7 +115,7 @@ Sometimes the request is for a plan ("plan my next session", weekly plan) in an 
 
 1. Trust the auto-loaded AGENTS.md; confirm the In Progress card. Read `notes/dashboard.md` (at-a-glance) or the kanban board `notes/learning-board.md`, plus the latest chapter note in `notes/` — where did we stop?
 2. Pick one goal: one section, not a whole chapter.
-3. Ask 2–3 recall questions from the last session (no notes first). For review, lean on the learner's flashcards — Obsidian SRS schedules the `#flashcards` tags in chapter notes and the glossary, so suggest due cards when reviewing.
+3. Ask 2–3 recall questions from the last session (no notes first). For review, lean on the learner's flashcards — Obsidian SRS schedules the `#flashcards` tags in chapter notes, so suggest due cards when reviewing.
 4. Fetch the section via the MCP, then work through its TDD steps in the workspace.
 5. When green, update the chapter note (`status: complete`) and move the card to Done on the board, and offer flashcard suggestions from the session's new terms. End with a 3-bullet summary and the next session's goal.
 
@@ -120,11 +123,11 @@ Sometimes the request is for a plan ("plan my next session", weekly plan) in an 
 
 Run a review session at milestone checkpoints — e.g. before starting a new book section like Concurrency — or whenever the learner asks to revise. It is not a re-teach; it is a checkpoint.
 
-1. Pull the learner's review layer: due SRS flashcards (`#flashcards` in chapter notes + glossary "Mental anchors").
-2. Quiz from the cards, plus 2–3 "explain in your own words" prompts per completed chapter.
-3. Re-open their gotcha/fog notes (e.g. "FOG CLEARED" entries) — re-explain anything that still sounds shaky, in-scope and hint-sized.
+1. Pull the learner's review layer: due SRS flashcards (`#flashcards` in chapter notes).
+2. Quiz from the cards, plus 2–3 "explain in your own words" prompts per completed chapter — answers must be the book's sentences via the MCP.
+3. Re-open their gotcha/fog notes (e.g. "FOG CLEARED" entries) — re-explain anything that still sounds shaky, in-scope and hint-sized, using the book's sentence.
 4. Find the weak spots, then plan one targeted re-read of that chapter's section via the MCP.
-5. Update the glossary with anything that was fuzzy, and suggest new flashcards for the weak spots.
+5. Suggest new flashcards for the weak spots using the book's defining sentences.
 6. Close with a short list: solid topics vs. review-next.
 
 ## Build-an-application chapters (different rhythm)
