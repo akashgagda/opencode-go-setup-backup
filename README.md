@@ -16,7 +16,7 @@ The `opencode/` directory mirrors `~/.config/opencode/`:
 - `opencode/tui.json` — TUI theme (`theme: system`, `codeLens: false`, `inlayHints: false`)
 - `opencode/tui.jsonc` — TUI plugins (empty `plugin: []` by default; herdr integration optional)
 - `opencode/skills/` — the skill library, auto-loaded by opencode (3-skill stack + Go tutor):
-  - `learn-go-with-tests` — the Go tutor (test-first, red → green → refactor). This replaces the old `go-tutor` agent + `learning-style.md`. Anchors are **book-owned** via the GitBook MCP (`searchDocumentation` → `getPage` verbatim sentences); citation display `none` (hide file refs); `notes/glossary.md` is archived.
+  - `learn-go-with-tests` — the Go tutor (test-first, red → green → refactor). This replaces the old `go-tutor` agent + `learning-style.md`. Anchors are **book-owned** via the GitBook MCP (`searchDocumentation` → `getPage` verbatim sentences); `notes/glossary.md` is archived.
   - `concept-explainer` — explain any concept with progressive depth + a check for understanding (book-MCP for Go terms)
   - `socratic-tutor` — teach by asking questions, not handing over answers
   - `study-habit-coach` — build a repeatable study habit (tiny actions, friction fixes; flashcards from chapter notes only)

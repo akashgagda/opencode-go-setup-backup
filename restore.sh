@@ -5,7 +5,7 @@ set -euo pipefail
 #
 # Mirrors opencode/ into ~/.config/opencode (or $OPENCODE_CONFIG_DIR).
 # Current stack (2026-08-28): 4 skills — learn-go-with-tests (book-owned via
-# GitBook MCP searchDocumentation->getPage verbatim, citation none) +
+# GitBook MCP searchDocumentation->getPage verbatim) +
 # concept-explainer/socratic-tutor/study-habit-coach (2-file load-bearing,
 # no glossary, no deeptutor), tui: system + codeLens:false + inlayHints:false,
 # tui.jsonc plugin: [] (herdr optional, not bundled), no .mcp.json, no .commandcode.
