@@ -13,7 +13,11 @@ Backup of `~/.config/opencode` — run `./restore.sh` to restore.
 
 ## Prerequisites
 
-- `opencode` CLI, Go toolchain, `gopls`, `pkgsite`, `golangci-lint`
+- `opencode` CLI (e.g. via [mise](https://mise.jdx.dev))
+- Go toolchain (e.g. via [mise](https://mise.jdx.dev))
+- gopls — `go install golang.org/x/tools/gopls@latest` (or via mise)
+- pkgsite — `go install github.com/hegner123/pkgsite@latest` (MCP server for pkg.go.dev docs)
+- golangci-lint — `mise use -g golangci-lint@v2.12.2` (or their [official install](https://golangci-lint.run/welcome/install/))
 
 ## Restore
 
