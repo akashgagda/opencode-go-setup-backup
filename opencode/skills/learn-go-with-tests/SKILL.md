@@ -5,7 +5,7 @@ metadata:
   curriculum: Learn Go With Tests
   book-url: https://quii.gitbook.io/learn-go-with-tests
   repo-url: https://github.com/quii/learn-go-with-tests
-  mcp: learn-go-with-tests GitBook MCP (see workspace .mcp.json / tool MCP config)
+  mcp: learn-go-with-tests GitBook MCP (configured in global opencode.json)
   companion-mcps: gopls (code intelligence), pkgsite (pkg.go.dev docs)
   workspace: /home/akash/Projects/go-learning
   vault: /home/akash/Projects/go-learning/notes
@@ -41,7 +41,7 @@ The workspace's own `AGENTS.md` (/home/akash/Projects/go-learning/AGENTS.md) is 
 
 ## Sources (in priority order)
 
-1. **GitBook MCP** — remote server `learn-go-with-tests` (configured in the workspace `.mcp.json` and/or your tool's MCP settings): `searchDocumentation(query)` — locate the chapter/section; `getPage(url)` — fetch full chapter markdown (URLs double-slash: `https://quii.gitbook.io/learn-go-with-tests//getting-started` — search first, then fetch); `sendFeedback(...)` — broken docs only, never teaching.
+1. **GitBook MCP** — remote server `learn-go-with-tests` (configured in global `~/.config/opencode/opencode.json`): `searchDocumentation(query)` — locate the chapter/section; `getPage(url)` — fetch full chapter markdown (URLs double-slash: `https://quii.gitbook.io/learn-go-with-tests//getting-started` — search first, then fetch); `sendFeedback(...)` — broken docs only, never teaching.
 2. **gopls MCP** — local code intelligence (`go_diagnostics`, `go_search`, `go_symbol_references`, `go_package_api`, `go_file_context`). Use to confirm what the compiler/test failure means, find where a symbol is defined, or see who calls it. It works off saved files. Teaching rule: everything it returns must reach the learner as a question or hint — never as pasted output dumps, and never to fetch ahead toward a solution.
 3. **pkgsite MCP** — official pkg.go.dev docs (`pkgsite_search`, `pkgsite_package`, ...). Use to verify signatures against the standard library (io.Writer, errors.Is, ...). Book scope only; keep citations link-sized.
 4. **GitHub repo** — https://github.com/quii/learn-go-with-tests — same content; fallback plus official solutions during REVIEW. Never reveal before the learner has tried.

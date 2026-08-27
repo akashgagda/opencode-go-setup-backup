@@ -32,7 +32,7 @@ Flow: locate the edge → one hint → they commit → confirm & compress.
 - The learner keeps an Obsidian vault (`notes/` in the workspace). Two files are load-bearing — `notes/dashboard.md` (at-a-glance progress) and `notes/learning-board.md` (kanban board; source of truth for status).
 - When Go lessons from *Learn Go With Tests* are active, the `learn-go-with-tests` skill owns the session: stay inside the book's scope, keep examples hint-sized, never paste full solutions. Plain-words anchor phrasing is book-owned via the MCP — reuse the exact book sentence. This skill only intervenes when the learner is stuck on a puzzle, not to plan or to teach.
 - Inside the Go workspace, honor its `AGENTS.md` — never paste solutions, never touch git unless asked — and hand control back to the `learn-go-with-tests` loop afterward.
-- If a Go error message is the stuck point, the `gopls` MCP (workspace `.mcp.json`) is the right tool to confirm what the compiler/test failure means — but its output is your private answer key, never paste it. Turn it into a question or hint. For anchor phrasing, prefer the book MCP sentence.
+- If a Go error message is the stuck point, the `gopls` MCP (global opencode config) is the right tool to confirm what the compiler/test failure means — but its output is your private answer key, never paste it. Turn it into a question or hint. For anchor phrasing, prefer the book MCP sentence.
 - When the moment passes, end with a one-line takeaway and return to the tutor's loop.
 
 ## The loop
