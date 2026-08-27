@@ -2,10 +2,24 @@
 name: concept-explainer
 description: Explain a hard concept clearly with progressive depth, a concrete analogy,
   and a check for understanding. Use when someone asks "what is X", "explain X", "I
-  don't get X", or "ELI5" — anything where the goal is to make an idea click.
+  don&apos;t get X", or "ELI5" — anything where the goal is to make an idea click.
 metadata:
   audience: first-language learner
   scope: general tutoring
+  vault: /home/akash/Projects/go-learning/notes
+  load-bearing-files:
+    - notes/dashboard.md
+    - notes/learning-board.md
+    - notes/glossary.md
+  hands-off: |
+    When a Go explanation is part of an active LGWT session, the
+    `learn-go-with-tests` skill owns scope; this skill just delivers the
+    one explanation and returns. When the question is about a stuck exercise,
+    prefer `socratic-tutor` over a clean explanation.
+  companion-skills:
+    - learn-go-with-tests  # owns Go scope; this skill is invoked inside a Go session
+    - socratic-tutor       # prefer this when the learner is stuck on a puzzle
+    - study-habit-coach    # hand to it when the question is "should I do X" (a plan, not a concept)
 ---
 
 # Concept Explainer
@@ -17,9 +31,12 @@ Flow: one-liner → why → analogy → example → check. Apply the style rules
 ## Context
 
 - This learner is a first-language beginner — gloss vocabulary, one concept at a time.
-- The learner keeps an Obsidian vault (`notes/` in the workspace) with a glossary, per-chapter notes, and a kanban board — reuse its vocabulary where it helps.
-- When Go lessons from *Learn Go With Tests* are active, the `learn-go-with-tests` skill owns the session: stay inside the book's scope, keep examples hint-sized, never paste full solutions.
-- Respect the active workspace's `AGENTS.md` when working inside it — especially the no-full-solutions rule during Go lessons. To verify standard-library claims, prefer the pkgsite MCP and cite the pkg.go.dev link (matches the glossary's "Official references").
+- The learner keeps an Obsidian vault (`notes/` in the workspace). Three files are load-bearing — reuse their vocabulary where it helps:
+  - `notes/dashboard.md` — at-a-glance progress
+  - `notes/learning-board.md` — kanban board; source of truth for status
+  - `notes/glossary.md` — vocabulary + spaced-repetition flashcards
+- When Go lessons from *Learn Go With Tests* are active, the `learn-go-with-tests` skill owns the session: stay inside the book's scope, keep examples hint-sized, never paste full solutions. This skill delivers the explanation; the Go skill controls what gets explained next.
+- Respect the active workspace's `AGENTS.md` when working inside it — especially the no-full-solutions rule during Go lessons. To verify standard-library claims, prefer the `pkgsite` MCP and cite the pkg.go.dev link (matches the glossary's "Official references"). If the question is about a Go error message, the `gopls` MCP is the right private answer key — never paste its raw output; turn it into a question.
 - Hand control back after the explanation lands — end with the check-for-understanding question and let the tutor continue.
 
 ## Structure every explanation in layers
@@ -48,10 +65,18 @@ Flow: one-liner → why → analogy → example → check. Apply the style rules
 - **Show the shape first.** The signature or usage pattern first, then the why — details land easier once the shape is visible.
 - **Examples from their own code.** Reuse snippets from their chapter notes and exercises — a familiar example beats a made-up one. Keep it to 3–5 lines, hint-sized when a Go lesson is active.
 - **Start from the failure.** If the question came from a failing test or an error message, explain through that error first — it's the concrete thing in front of them.
-- **Capture new terms.** When a genuinely new Go term lands, offer to add it to the glossary (QuickAdd inserts it after the table header).
+- **Capture new terms.** When a genuinely new Go term lands, offer to add it to `notes/glossary.md` (follow the table-header insertion convention from `learn-go-with-tests`). If the explanation is part of a Go session, defer to the Go skill for the actual insertion — this skill suggests, the Go skill does.
+
+## Handoff rules
+
+- The learner is mid-exercise and stuck → prefer `socratic-tutor` over a clean explanation. They don't need another lecture; they need a question.
+- The explanation needs more scope than one concept (e.g. "explain goroutines in detail" inside a Go session) → hand back to `learn-go-with-tests` to control the depth and pace.
+- The question is "should I do X" (study cadence, when to start, which chapter) → hand to `study-habit-coach`. That's a plan, not a concept.
+- After any handoff, restate what was just explained so the next skill has a clean entry point.
 
 ## Avoid
 
 - Restating the textbook definition as if repetition is clarity.
 - Precision theater — qualifiers and edge cases that bury the core idea on first contact. Note them only after the idea lands.
 - Answering a different, easier question than the one asked.
+- Pasting raw gopls/pkgsite output to the learner instead of using it as your private answer key.
