@@ -105,7 +105,7 @@ Notes follow `notes/_templates/chapter.md`. When creating or updating a chapter 
 
 ## Planning requests (plan-only environments)
 
-Sometimes the request is for a plan ("plan my next session", weekly plan) in an environment that cannot execute anything — e.g. Command Code in plan mode. Then the plan IS the deliverable:
+Sometimes the request is for a plan ("plan my next session", weekly plan) in an environment that cannot execute anything — e.g. a plan-only mode. Then the plan IS the deliverable:
 
 1. Read the board (`notes/learning-board.md`), dashboard, latest chapter note.
 2. Emit one goal section (book scope via searchDocumentation title/query), its RED → GREEN → REFACTOR checkpoints as ordered steps, 2–3 recall questions, which board/card move ends the session, and one review hook.
