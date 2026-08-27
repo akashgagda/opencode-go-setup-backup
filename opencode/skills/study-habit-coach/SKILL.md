@@ -10,7 +10,6 @@ metadata:
   load-bearing-files:
     - notes/dashboard.md
     - notes/learning-board.md
-    - notes/glossary.md
   hands-off: |
     When the planning conversation drifts into Go content ("how do I use a
     goroutine here?"), hand off to `learn-go-with-tests` and stop planning.
@@ -30,11 +29,8 @@ Flow: bottleneck → tiny plan → run it → reflect. Revise once, not daily.
 ## Context
 
 - This learner is a first-language beginner — gloss vocabulary, one concept at a time.
-- The learner keeps an Obsidian vault (`notes/` in the workspace). Three files are load-bearing — read them before planning:
-  - `notes/dashboard.md` — at-a-glance progress
-  - `notes/learning-board.md` — kanban board; the source of truth for what's done and what's next
-  - `notes/glossary.md` — vocabulary + spaced-repetition flashcards
-- When planning Go study, align with the `learn-go-with-tests` skill's session flow: one section per session, TDD loops, and the board as the checkpoint. This skill plans around the Go curriculum; it does not replace the Go tutor.
+- The learner keeps an Obsidian vault (`notes/` in the workspace). Two files are load-bearing — `notes/dashboard.md` (at-a-glance progress) and `notes/learning-board.md` (kanban board; the source of truth for what's done and what's next).
+- When planning Go study, align with the `learn-go-with-tests` skill's session flow: one section per session, TDD loops, and the board as the checkpoint. This skill plans around the Go curriculum; it does not replace the Go tutor. Anchor phrasing is book-owned via the MCP.
 
 ## Start with the bottleneck
 
@@ -54,7 +50,7 @@ If they have a specific session in mind, ask one of: target (one chapter, one se
 
 - Default to fewer sessions done reliably, not ambitious plans that collapse.
 - Use "minimum / normal / stretch" versions for each day. Worked example for a 60-minute weekday evening:
-  - **Minimum** (≤15 min, when tired): do today's due flashcards from `notes/glossary.md` and `notes/<chapter>.md` until they're cleared, then stop. No new material.
+  - **Minimum** (≤15 min, when tired): do today's due flashcards from `notes/<chapter>.md` until they're cleared, then stop. No new material.
   - **Normal** (45–60 min): 5 min flashcard round, then one section of the in-progress chapter following the RED → GREEN → REFACTOR loop. End on a green test.
   - **Stretch** (when energy is high): add 15 min of refactor + review of the previous chapter's gotchas.
 - If the learner misses a day, remove shame and restart with the minimum version. Two missed days in a row → drop to "minimum only" for a week, no stretch.
@@ -76,7 +72,7 @@ Not every chapter finishes in one session. LGWT chapters like *Concurrency*, *Re
 
 - A study session = one section from the book, not a whole chapter (see the `learn-go-with-tests` skill).
 - Checkpoints live on the kanban board (`notes/learning-board.md`): a chapter counts as done only when its `go test ./...` is green. See `learn-go-with-tests` for the full Done criteria.
-- Review material already exists: the learner's chapter notes and flashcards in `notes/`. Obsidian SRS schedules the `#flashcards` for spaced repetition — make a short daily review round part of the plan.
+- Review material already exists: the learner's chapter notes and flashcards in `notes/` (chapter `#flashcards`). Obsidian SRS schedules them — make a short daily review round part of the plan.
   - A flashcard round = open Obsidian, hit the SRS review queue, work through it until empty or 3 minutes, whichever lands first. Don't time-box to N cards; SRS knows the queue.
 - Read the workspace's `AGENTS.md` for session logistics (commands, vault, git etiquette: commits belong to the learner). When asked to plan in a plan-only environment, output the Today/This-week/Friction/Check-in block without modifying any files.
 

@@ -10,7 +10,6 @@ metadata:
   load-bearing-files:
     - notes/dashboard.md
     - notes/learning-board.md
-    - notes/glossary.md
   hands-off: |
     When a Go explanation is part of an active LGWT session, the
     `learn-go-with-tests` skill owns scope; this skill just delivers the
@@ -31,12 +30,9 @@ Flow: one-liner → why → analogy → example → check. Apply the style rules
 ## Context
 
 - This learner is a first-language beginner — gloss vocabulary, one concept at a time.
-- The learner keeps an Obsidian vault (`notes/` in the workspace). Three files are load-bearing — reuse their vocabulary where it helps:
-  - `notes/dashboard.md` — at-a-glance progress
-  - `notes/learning-board.md` — kanban board; source of truth for status
-  - `notes/glossary.md` — vocabulary + spaced-repetition flashcards
-- When Go lessons from *Learn Go With Tests* are active, the `learn-go-with-tests` skill owns the session: stay inside the book's scope, keep examples hint-sized, never paste full solutions. This skill delivers the explanation; the Go skill controls what gets explained next.
-- Respect the active workspace's `AGENTS.md` when working inside it — especially the no-full-solutions rule during Go lessons. To verify standard-library claims, prefer the `pkgsite` MCP and cite the pkg.go.dev link (matches the glossary's "Official references"). If the question is about a Go error message, the `gopls` MCP is the right private answer key — never paste its raw output; turn it into a question.
+- The learner keeps an Obsidian vault (`notes/` in the workspace). Two files are load-bearing — `notes/dashboard.md` (at-a-glance progress) and `notes/learning-board.md` (kanban board; source of truth for status).
+- When Go lessons from *Learn Go With Tests* are active, the `learn-go-with-tests` skill owns the session: stay inside the book's scope, keep examples hint-sized, never paste full solutions. This skill delivers the one explanation and returns; the Go skill controls scope. For anchor phrasing, follow the Go skill's book-owned rule — reuse the exact book sentence via `searchDocumentation` → `getPage` (e.g. `//go-fundamentals/arrays-and-slices`), no custom analogy unless the book uses it. Citation display is `none` (hide file refs) unless the learner asks.
+- Respect the active workspace's `AGENTS.md` when working inside it — especially the no-full-solutions rule during Go lessons. To verify standard-library claims, prefer the `pkgsite` MCP and cite the pkg.go.dev link. If the question is about a Go error message, the `gopls` MCP is the right private answer key — never paste its raw output; turn it into a question.
 - Hand control back after the explanation lands — end with the check-for-understanding question and let the tutor continue.
 
 ## Structure every explanation in layers
@@ -59,13 +55,13 @@ Flow: one-liner → why → analogy → example → check. Apply the style rules
 
 ## The explaining style
 
-- **Name it twice.** Everyday words first ("a slice is a row of numbered boxes you can extend — a bookmark marks where it starts"), then the Go term ("that's a slice"). The plain version carries the meaning; the Go name is the label.
+- **Name it twice.** Everyday words first, then the Go term — reuse the exact book sentence via the MCP when inside a Go session (no custom “labeled box / recipe” unless the book uses it). The plain version carries the meaning; the Go name is the label.
 - **One idea per breath.** Short sentences, one new idea per paragraph. A wall of text is a wall.
-- **Anchor to what they know.** Tie the new concept to earlier chapters and to terms already in their glossary — e.g. explain `io.Writer` through their DI chapter's `bytes.Buffer` test.
+- **Anchor to what they know.** Tie the new concept to earlier chapters — e.g. explain `io.Writer` through their DI chapter's `bytes.Buffer` test.
 - **Show the shape first.** The signature or usage pattern first, then the why — details land easier once the shape is visible.
 - **Examples from their own code.** Reuse snippets from their chapter notes and exercises — a familiar example beats a made-up one. Keep it to 3–5 lines, hint-sized when a Go lesson is active.
 - **Start from the failure.** If the question came from a failing test or an error message, explain through that error first — it's the concrete thing in front of them.
-- **Capture new terms.** When a genuinely new Go term lands, offer to add it to `notes/glossary.md` (follow the table-header insertion convention from `learn-go-with-tests`). If the explanation is part of a Go session, defer to the Go skill for the actual insertion — this skill suggests, the Go skill does.
+- **Capture new terms.** When a genuinely new Go term lands, pull its defining sentence from the book via the MCP. Inside a Go session, defer to the `learn-go-with-tests` skill for book-sentence reuse — this skill suggests, the Go skill does.
 
 ## Handoff rules
 
