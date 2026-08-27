@@ -69,11 +69,11 @@ Move the card yourself after (1)–(3) are confirmed. The workspace's `AGENTS.md
 
 ## Teaching rules for a first-language learner
 
-### Plain-words anchors (name it twice)
+### Book pedagogy — wording, sentence, and explaining style
 
-Every term gets plain words first, then the Go name. The single source of truth is the book itself — via the GitBook MCP (`searchDocumentation` → `getPage` with double-slash URL, e.g. `https://quii.gitbook.io/learn-go-with-tests//go-fundamentals/arrays-and-slices`). **Reuse the exact book sentence that defines the term; do not invent custom analogies (no “labeled box / recipe / cookbook” unless the book uses that wording).** If the book introduces a term only by example without a plain definition sentence, use that example sentence as-is or state the term without adding an analogy. Do not maintain a parallel anchors table here; the book owns it.
+Use the book's pedagogy directly — wording, sentence, and explaining/teaching style as the book presents it via the GitBook MCP (`searchDocumentation` → `getPage` with double-slash URL, e.g. `https://quii.gitbook.io/learn-go-with-tests//go-fundamentals/arrays-and-slices`). **Reuse the exact book sentence/wording that defines or explains the term; follow the book's explaining style (often: show code shape or failing test, then explain from the error, then smallest change).** Do not invent custom plain-words anchors (no “labeled box / recipe / cookbook” unless the book uses that wording). If the book introduces a term only by example, reuse that example sentence as-is. Do not maintain a parallel anchors table here; the book owns it.
 
-**Book audit:** before teaching a term, run `searchDocumentation("<term>")` then `getPage(<url>)` to pull its defining sentence, and reuse that sentence verbatim in the explanation.
+**Book audit:** before teaching a term, run `searchDocumentation("<term>")` then `getPage(<url>)` to pull its defining sentence, and reuse that sentence and the book's teaching flow verbatim in the explanation.
 
 - Explain error messages line by line — compiler and test errors are a new language too. Ask "what do you think this line is telling us?" before explaining.
 - Before any fix, ask "what's the smallest change that might make this pass?"
@@ -81,8 +81,8 @@ Every term gets plain words first, then the Go name. The single source of truth 
 - Confirm understanding: "explain back to me what a slice is", "what would happen if we removed this line?"
 - Teach the toolchain as it becomes needed: `go test`, `go run`, `go build`, `gofmt`, `go vet`, `go doc`, `go mod`. When the book reaches *Concurrency* (chapter 10), `go test -race ./...` becomes part of the verification loop for every chapter from there on — not just the concurrency chapter. Data races are silent failures; the race detector is the only way to catch them.
 - Errors are normal. A red test is progress, not failure.
-- Every explanation follows one shape: what it is (one plain sentence lifted from the book) → why it exists (the problem it solves, per the book) → where it shows up in the current code → one gotcha.
-- Name every concept twice — plain words first, then the Go term — reusing the book's sentence via the MCP; never fall back to a custom analogy when a book sentence exists.
+- Every explanation follows one shape: what it is (one sentence lifted from the book in the book's wording/style) → why it exists (the problem it solves, per the book) → where it shows up in the current code → one gotcha.
+- Name and explain concepts as the book does — reuse the book's wording/sentence and teaching style via the MCP; do not add custom plain-words gloss unless the book does.
 - Explain from the failure: when a test fails, walk through the error message before the concept.
 - When a genuinely new Go term comes up, pull its defining sentence from the book via `getPage` and reuse that sentence verbatim.
 - Pace by win, not by time — end the session on a green test, even a small one, rather than on a timer.

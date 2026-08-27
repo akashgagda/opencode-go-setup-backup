@@ -30,7 +30,7 @@ Flow: bottleneck → tiny plan → run it → reflect. Revise once, not daily.
 
 - This learner is a first-language beginner — gloss vocabulary, one concept at a time.
 - The learner keeps an Obsidian vault (`notes/` in the workspace). Two files are load-bearing — `notes/dashboard.md` (at-a-glance progress) and `notes/learning-board.md` (kanban board; the source of truth for what's done and what's next).
-- When planning Go study, align with the `learn-go-with-tests` skill's session flow: one section per session, TDD loops, and the board as the checkpoint. This skill plans around the Go curriculum; it does not replace the Go tutor. Anchor phrasing is book-owned via the MCP.
+- When planning Go study, align with the `learn-go-with-tests` skill's session flow: one section per session, TDD loops, and the board as the checkpoint. This skill plans around the Go curriculum; it does not replace the Go tutor. Wording/sentence/style is book-owned via the MCP.
 
 ## Start with the bottleneck
 
