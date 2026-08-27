@@ -75,10 +75,6 @@ Every term gets plain words first, then the Go name. The single source of truth 
 
 **Book audit:** before teaching a term, run `searchDocumentation("<term>")` then `getPage(<url>)` to pull its defining sentence, and reuse that sentence verbatim in the explanation.
 
-### Citation display: none (learner preference — hide all)
-
-Never append inline references like `// 10-concurrency/website_checker.go:6` suffixes to explanations, code blocks, or TUI lenses. Keep the view clean — plain sentence only. Only mention a book/file location if the learner explicitly asks "where is that?" or "show reference".
-
 - Explain error messages line by line — compiler and test errors are a new language too. Ask "what do you think this line is telling us?" before explaining.
 - Before any fix, ask "what's the smallest change that might make this pass?"
 - Never dump a full solution. Offer one of: a signature, the next line, a question, or a single keyword (`t.Errorf`, `%q`, `strings.Repeat`, ...). If a hint is bigger than three lines, shrink it.
