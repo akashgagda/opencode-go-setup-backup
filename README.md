@@ -1,70 +1,37 @@
 # opencode Setup Backup
 
-Backup of my opencode configuration, skills, and TUI/plugin wiring — for restoring
-on a new machine (or recovering after a wipe). Run `./restore.sh` and you're back.
+Backup of `~/.config/opencode` — run `./restore.sh` to restore.
 
 ## What's included
 
-The `opencode/` directory mirrors `~/.config/opencode/`:
+`opencode/` mirrors the live config:
 
-- `opencode/opencode.json` — global config
-  - **Learn Go With Tests** MCP (remote GitBook)
-  - **gopls** MCP (local, official Go code-intelligence tools: `go_search`, `go_diagnostics`, `go_symbol_references`, `go_vulncheck`, `go_file_context`, `go_package_api`)
-  - **pkgsite** MCP (local, wraps the pkg.go.dev v1beta API: `pkgsite_search`, `pkgsite_package`, `pkgsite_symbols`, `pkgsite_vulns`, …)
-  - auto-allow permissions for Go toolchain, git, and `obsidian` commands
-  - `autoupdate: false`
-- `opencode/tui.json` — TUI theme (`theme: system`)
-- `opencode/tui.jsonc` — TUI plugins (empty `plugin: []` by default; herdr integration optional)
-- `opencode/skills/` — the skill library, auto-loaded by opencode (3-skill stack + Go tutor):
-  - `learn-go-with-tests` — the Go tutor (test-first, red → green → refactor). This replaces the old `go-tutor` agent + `learning-style.md`. Book pedagogy — wording/sentence/style is **book-owned** via the GitBook MCP (`searchDocumentation` → `getPage` verbatim); `notes/glossary.md` is archived.
-  - `concept-explainer` — explain any concept with progressive depth + a check for understanding (book-MCP for Go terms)
-  - `socratic-tutor` — teach by asking questions, not handing over answers
-  - `study-habit-coach` — build a repeatable study habit (tiny actions, friction fixes; flashcards from chapter notes only)
-- `opencode/plugins/` — optional pane integrations (e.g. [herdr](https://herdr.app) `herdr-agent-state.js` / `herdr-tui-session.js` when installed; managed by herdr and regenerated on reinstall — not included by default)
-- `opencode/package.json` / `opencode/package-lock.json` — `@opencode-ai/plugin` runtime dependency for plugins (restore runs `npm install` / `bun install` automatically when needed).
+- `opencode.json` — `learn-go-with-tests` (GitBook) + `gopls` + `pkgsite` MCPs, Go/obsidian allows, `autoupdate: false`
+- `tui.json` / `tui.jsonc` — theme `system`, `plugin: []`
+- `skills/` — `learn-go-with-tests` (book pedagogy via MCP) + `concept-explainer` / `socratic-tutor` / `study-habit-coach`
+- `plugins/`, `package.json` — optional integrations
 
-## Prerequisites (new machine)
+## Prerequisites
 
-- [opencode](https://opencode.ai) CLI (e.g. via [mise](https://mise.jdx.dev))
-- Go toolchain (e.g. via [mise](https://mise.jdx.dev))
-- gopls — `go install golang.org/x/tools/gopls@latest` (or via mise)
-- pkgsite — `go install github.com/hegner123/pkgsite@latest` (MCP server for pkg.go.dev docs)
-- golangci-lint — `mise use -g golangci-lint@v2.12.2` (or their [official install](https://golangci-lint.run/welcome/install/))
-- [herdr](https://herdr.app) — optional; only if you want the pane/session integration
-- [obsidian](https://github.com/Yakitrak/obsidian-cli) CLI — optional; for opening vault notes from the CLI
+- `opencode` CLI, Go toolchain, `gopls`, `pkgsite`, `golangci-lint`
 
 ## Restore
 
 ```bash
-# 1. install prerequisites (see above)
-
-# 2. copy the whole config tree into place
 ./restore.sh
-
-# 3. restart opencode (config + MCP are loaded on startup, not hot-reloaded)
+# restart opencode (config loads on startup)
 ```
 
-`restore.sh` copies the `opencode/` tree into `~/.config/opencode/` (override with
-`OPENCODE_CONFIG_DIR`), mirroring the live layout. The repo is the source of truth:
-files that differ are overwritten, and anything overwritten is first moved to
-`.restore-backup-<timestamp>/` inside the config dir. If a `package.json` is present
-but `node_modules/` is missing, it runs `bun install` (or `npm install`) there.
+Mirrors `opencode/` into `~/.config/opencode` (`$OPENCODE_CONFIG_DIR` to override); backs up overwrites to `.restore-backup-*`; runs `bun`/`npm install` if needed.
 
 ## Daily use
 
-- **Go tutoring** — the `learn-go-with-tests` skill drives test-first sessions in
-  the `~/Projects/go-learning` workspace: a single Go module with one package per
-  chapter plus an Obsidian vault (`notes/dashboard.md`, `notes/learning-board.md` load-bearing; `notes/glossary.md` archived — book pedagogy via MCP) and its own `AGENTS.md`. That workspace is versioned separately at github.com/akashgagda/go-learning.
-- **General tutoring** — `concept-explainer`, `socratic-tutor`, and
-  `study-habit-coach` are generic and apply to any subject (3-skill stack, no deeptutor).
+- **Go** — `learn-go-with-tests` in `~/Projects/go-learning` (one package per chapter, vault `dashboard.md` + `learning-board.md`, glossary archived)
+- **General** — `concept-explainer` / `socratic-tutor` / `study-habit-coach`
 
-Skills load automatically in opencode — there is no agent to switch to. Just ask,
-e.g. "teach me Go" or "walk me through this problem".
+Skills auto-load — just ask `teach me Go`.
 
 ## Notes
 
-- The old setup (`go-tutor` agent, `learning-style.md`, `/notes` command, `deeptutor` skill, glossary-owned anchors, plain-words anchors) was replaced by the skill library plus the workspace's own rules; see git history. Glossary/plain-words removed — book pedagogy (wording/sentence/style) is now book-owned via MCP (`searchDocumentation` → `getPage` verbatim).
-- gopls MCP runs in detached mode (`gopls mcp`), so it only sees saved files.
-- pkgsite MCP wraps pkg.go.dev's v1beta API, so agents can look up official Go docs instead of guessing.
-- `default_agent` is intentionally NOT set, so no agent hijacks sessions.
-- TUI: `tui.jsonc` `plugin` is empty by default.
+- Replaces old `go-tutor`/`learning-style.md`/`deeptutor`/glossary/plain-words — book pedagogy via `searchDocumentation→getPage` verbatim.
+- `gopls mcp` is detached (saved files only); `default_agent` not set.
