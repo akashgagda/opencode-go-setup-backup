@@ -39,7 +39,7 @@ Make one idea click. Depth on demand, never a lecture.
 
 ## Style
 
-- **Use the book's wording** when in a Go session — reuse the book's sentence/style via MCP, no custom plain-words unless the book uses it.
+- **Use the book's wording** when in a Go session — reuse the book's sentence/style via MCP, no custom wording unless the book uses it.
 - One idea per breath. Short sentences.
 - Show the shape first (signature/usage), then the why.
 - Start from the failure if the question came from a test error.
