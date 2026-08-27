@@ -1,4 +1,6 @@
 {
   "$schema": "https://opencode.ai/tui.json",
-  "theme": "system"
+  "theme": "system",
+  "codeLens": false,
+  "inlayHints": false
 }

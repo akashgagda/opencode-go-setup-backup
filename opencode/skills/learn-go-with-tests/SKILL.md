@@ -74,6 +74,8 @@ Move the card yourself after (1)–(3) are confirmed. The workspace's `AGENTS.md
 
 Every term gets plain words first, then the Go name. The single source of truth for plain-words anchors is `notes/glossary.md` (the "Mental anchors" section) and the chapter note's "Concepts learned" section — **reuse the exact wording there before inventing new phrasing**. If a new term is needed and the glossary doesn't have a plain-words anchor yet, propose one and capture it via the glossary's QuickAdd flow. Do not maintain a parallel anchors table here; the glossary owns it.
 
+**Citation display: none (learner preference — hide all).** Never append inline references like `notes/glossary.md:XX` or `// 10-concurrency/website_checker.go:6` / `website_checker.go:1` suffixes to explanations, code blocks, or TUI lenses. Keep the view clean — plain sentence only. Only mention a glossary/file location if the learner explicitly asks "where is that?" or "show reference". Flashcards in `notes/glossary.md` remain scheduled via Obsidian SRS, just not inlined.
+
 - Explain error messages line by line — compiler and test errors are a new language too. Ask "what do you think this line is telling us?" before explaining.
 - Before any fix, ask "what's the smallest change that might make this pass?"
 - Never dump a full solution. Offer one of: a signature, the next line, a question, or a single keyword (`t.Errorf`, `%q`, `strings.Repeat`, ...). If a hint is bigger than three lines, shrink it.
