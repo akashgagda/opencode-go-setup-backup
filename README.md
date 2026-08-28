@@ -7,9 +7,7 @@ Backup of `~/.config/opencode` — run `./restore.sh` to restore.
 `opencode/` mirrors the live config:
 
 - `opencode.json` — `learn-go-with-tests` (GitBook) + `gopls` + `pkgsite` MCPs, Go/obsidian allows, `autoupdate: false`
-- `tui.json` / `tui.jsonc` — theme `system`, `plugin: []`
 - `skills/` — `learn-go-with-tests` (book pedagogy via MCP) + `concept-explainer` / `socratic-tutor` / `study-habit-coach`
-- `plugins/`, `package.json` — optional integrations
 
 ## Prerequisites
 
@@ -26,7 +24,7 @@ Backup of `~/.config/opencode` — run `./restore.sh` to restore.
 # restart opencode (config loads on startup)
 ```
 
-Mirrors `opencode/` into `~/.config/opencode` (`$OPENCODE_CONFIG_DIR` to override); backs up overwrites to `.restore-backup-*`; runs `bun`/`npm install` if needed.
+Mirrors `opencode/` into `~/.config/opencode` (`$OPENCODE_CONFIG_DIR` to override); backs up overwrites to `.restore-backup-*`.
 
 ## Daily use
 
