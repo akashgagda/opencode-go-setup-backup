@@ -32,8 +32,3 @@ Mirrors `opencode/` into `~/.config/opencode` (`$OPENCODE_CONFIG_DIR` to overrid
 - **General** — `concept-explainer` / `socratic-tutor` / `study-habit-coach`
 
 Skills auto-load — just ask `teach me Go`.
-
-## Notes
-
-- Replaces old `go-tutor`/`learning-style.md`/`deeptutor`/glossary/plain-words — book pedagogy via `searchDocumentation→getPage` verbatim.
-- `gopls mcp` is detached (saved files only); `default_agent` not set.
