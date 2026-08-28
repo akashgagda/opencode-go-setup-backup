@@ -1,41 +1,105 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
-  "permission": {
-    "bash": {
-      "go test *": "allow",
-      "go vet *": "allow",
-      "golangci-lint *": "allow",
-      "gofmt *": "allow",
-      "go fmt *": "allow",
-      "go run *": "allow",
-      "go build *": "allow",
-      "go doc *": "allow",
-      "go mod *": "allow",
-      "go env *": "allow",
-      "git status *": "allow",
-      "git diff *": "allow",
-      "git log *": "allow",
-      "git add *": "allow",
-      "git commit *": "allow",
-      "obsidian *": "allow"
+  "permissions": [
+    {
+      "action": "shell",
+      "resource": "go test *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "go vet *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "golangci-lint *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gofmt *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "go fmt *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "go run *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "go build *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "go doc *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "go mod *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "go env *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git status *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git diff *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git log *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git add *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git commit *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "obsidian *",
+      "effect": "allow"
     }
-  },
+  ],
   "mcp": {
-    "learn-go-with-tests": {
-      "type": "remote",
-      "url": "https://quii.gitbook.io/learn-go-with-tests/~gitbook/mcp",
-      "enabled": true
-    },
-    "gopls": {
-      "type": "local",
-      "command": ["gopls", "mcp"],
-      "enabled": true
-    },
-    "pkgsite": {
-      "type": "local",
-      "command": ["pkgsite"],
-      "enabled": true
+    "servers": {
+      "learn-go-with-tests": {
+        "type": "remote",
+        "url": "https://quii.gitbook.io/learn-go-with-tests/~gitbook/mcp",
+        "disabled": false
+      },
+      "gopls": {
+        "type": "local",
+        "command": ["gopls", "mcp"],
+        "disabled": false
+      },
+      "pkgsite": {
+        "type": "local",
+        "command": ["pkgsite"],
+        "disabled": false
+      }
     }
   }
 }
