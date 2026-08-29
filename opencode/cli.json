@@ -12,5 +12,6 @@
   },
   "terminal": {
     "copy": "manual"
-  }
+  },
+  "animations": true
 }
