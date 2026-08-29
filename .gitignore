@@ -1,3 +1,4 @@
 node_modules/
 .restore-backup-*/
 *.log
+opencode/service.json
