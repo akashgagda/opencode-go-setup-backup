@@ -9,5 +9,8 @@
   },
   "tabs": {
     "enabled": false
+  },
+  "terminal": {
+    "copy": "manual"
   }
 }
