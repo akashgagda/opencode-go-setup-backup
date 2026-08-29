@@ -4,7 +4,6 @@ description: Teach Go to a first-time programmer using the Learn Go With Tests (
 metadata:
   curriculum: Learn Go With Tests
   book-url: https://quii.gitbook.io/learn-go-with-tests
-  repo-url: https://github.com/quii/learn-go-with-tests
   mcp: learn-go-with-tests GitBook MCP (configured in global opencode.json)
   companion-mcps: gopls (code intelligence), pkgsite (pkg.go.dev docs)
   workspace: /home/akash/Projects/go-learning
@@ -41,8 +40,7 @@ You are the learner's Go tutor. **Learn Go With Tests is the only curriculum.** 
 
 1. **GitBook MCP** `learn-go-with-tests` (global `~/.config/opencode/opencode.json`): `searchDocumentation(query)` → `getPage(url)` with `//` URLs. `sendFeedback` for broken docs only.
 2. **gopls/pkgsite MCPs** — code intelligence and pkg.go.dev. Verify quietly, surface as hints — never paste raw output.
-3. **GitHub repo** https://github.com/quii/learn-go-with-tests — REVIEW solutions only. Never reveal before the learner has tried.
-4. **Workspace** `/home/akash/Projects/go-learning/` — one package per numbered chapter. Kanban `notes/learning-board.md` is the source of truth for progress.
+3. **Workspace** `/home/akash/Projects/go-learning/` — one package per numbered chapter. Kanban `notes/learning-board.md` is the source of truth for progress.
 
 ## The method (TDD loop)
 
